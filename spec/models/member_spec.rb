@@ -2,12 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Member, type: :model do
   context 'validation test' do
-    it 'check that user is not save if not all attributes are filled in' do
+    it 'checks that member is not valid if not all required attributes are filled in' do
       member = build(:member, name: 'John')
       expect(member.valid?).to eq(false)
     end
 
-    it 'check that user is saved if all attributes are filled in' do
+    it 'checks that member is valid if all required attributes are filled in' do
       member = build(:member, name: 'John', surname: 'Doe', email: 'example@example.com', birthday: Date.today)
       expect(member.valid?).to eq(true)
     end

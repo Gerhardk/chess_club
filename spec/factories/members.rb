@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :member, aliases: [:player_one, :player_two, :winner] do
+  factory :member, aliases: [:player_one, :player_two] do
     name { "" }
     surname { "" }
     email { "" }
