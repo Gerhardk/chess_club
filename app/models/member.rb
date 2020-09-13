@@ -4,9 +4,9 @@ class Member < ApplicationRecord
             :email,
             :birthday, presence: true
 
-  before_create :calculate_ranking
+  before_create :calculate_starting_rank
 
-  def calculate_ranking
+  def calculate_starting_rank
     self.current_rank = Member.count + 1
   end
 end
