@@ -1,9 +1,19 @@
+<section class="text-center m-3">
+    <h1>Chess Club</h1>
+    <% if current_user %>
+        <h5><%= current_user.email %></h5>
+    <% end %>
+    <%= link_to_if(current_user.nil?, "Login", new_user_session_path, class: 'btn btn-primary m-3') do
+          link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-3')
+    end %>
+</section>
+
 <div class="container mx-auto">
   <div class="leaderboard row">
     <div class="col-12 text-center">
-      <h1>
+      <h2>
         Leaderboard
-      </h1>
+      </h2>
     </div>    
   </div>
   <div class="table-responsive row">
@@ -24,7 +34,6 @@
           </tr>
         <% end %>
       </tbody>
-
     </table>
   </div>
 </div>
