@@ -1,24 +1,15 @@
-<section class="text-center m-3">
-    <h1>Chess Club</h1>
-    <% if current_user %>
-        <h5><%= current_user.email %></h5>
-    <% end %>
-    <%= link_to_if(current_user.nil?, "Login", new_user_session_path, class: 'btn btn-primary m-3') do
-          link_to('Sign out', destroy_user_session_path, method: 'delete', class: 'btn btn-danger m-3')
-    end %>
-</section>
-
-<section class="text-center m-3">
-  <%= link_to('Members', members_path, class: 'm-3') %>
-<section>
-
 <div class="container mx-auto">
   <div class="leaderboard row">
     <div class="col-12 text-center">
       <h2>
-        Leaderboard
+        Members
       </h2>
-    </div>    
+
+      <p>
+        <%= link_to 'Create new member', new_member_path, class: 'm-3' %> | 
+        <%= link_to 'Leaderboard', leaderboard_path, class: 'm-3' %>
+      </p>
+    </div>   
   </div>
   <div class="table-responsive row">
     <table class="table table-striped">
@@ -27,6 +18,8 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Surname</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -35,6 +28,8 @@
             <th scope="row"><%= member.current_rank %></th>
             <td><%= member.name %></td>
             <td><%= member.surname %></td>
+            <td><%= link_to 'Show', member, class: 'm-3' %></td>
+            <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-3' %></td>
           </tr>
         <% end %>
       </tbody>

@@ -1,0 +1,42 @@
+<div class="container mx-auto">
+  <div class="leaderboard row">
+    <div class="col-12 text-center">
+      <h2>
+        Member
+      </h2>
+
+      <p>
+        <%= link_to 'Members', members_path, class: 'm-3' %>
+      </p>
+    </div>   
+  </div>
+  <p id="notice"><%= notice %></p>
+  <div class="table-responsive row">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Email</th>
+          <th scope="col">Birthday</th>
+          <th scope="col">Games Played</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row"><%= @member.current_rank %></th>
+          <td><%= @member.name %></td>
+          <td><%= @member.surname %></td>
+          <td><%= @member.email %></td>
+          <td><%= @member.birthday %></td>
+          <td><%= @member.games_played %></td>
+          <td><%= link_to 'Edit', edit_member_path(@member.id), class: 'm-3' %></td>
+          <td><%= link_to 'Delete', @member, method: :delete, data: { confirm: 'Are you sure?' }, class: 'm-3' %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<%= form_for @member do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <strong>
+        <%= "#{pluralize(@member.errors.count, "error")} prohibited this block from being saved:" %>
+      </strong>
+      <ol>
+        <% @member.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+  <p class="field">
+    <%= f.label :name %>
+    <br />    
+    <%= f.text_field :name %>
+  </p>
+  <p class="field">
+    <%= f.label :surname %>
+    <br />    
+    <%= f.text_field :surname %>
+  </p>
+  <p class="field">
+    <%= f.label :email %>
+    <br />    
+    <%= f.email_field :email %>
+  </p>
+  <p class="field">
+    <%= f.label :birthday %>
+    <br />    
+    <%= f.date_field :birthday %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
