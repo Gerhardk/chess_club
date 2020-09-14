@@ -17,6 +17,18 @@ class Match < ApplicationRecord
       else
         return
       end
+    else
+      if player_one.current_rank > player_two.current_rank
+        if player_one.current_rank - 1 != player_two.current_rank
+          new_rank = player_one.current_rank - 1
+          player_one.update(current_rank: new_rank)
+        end
+      elsif player_two.current_rank > player_one.current_rank
+        if player_two.current_rank - 1 != player_one.current_rank
+          new_rank = player_two.current_rank - 1
+          player_two.update(current_rank: new_rank)
+        end
+      end
     end
   end
 end
