@@ -32,11 +32,10 @@ class MembersController < ApplicationController
     redirect_to members_path, notice: 'Member was successfully destroyed.'
   end
 
-
   private
-  def set_member
-    @member = Member.find(params[:id])
-  end
+    def set_member
+      @member = Member.find(params[:id])
+    end
 
     def member_params
       params.require(:member).permit(:name, :surname, :email, :birthday)

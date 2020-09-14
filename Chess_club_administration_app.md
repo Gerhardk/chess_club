@@ -33,7 +33,7 @@ placed up, to rank 13th - Done
 Write a simple application that will help the chess club administer their players.
 
 - The application will need all the basic CRUD operations. 
-- New players will, by default, be ranked last. - Done
+- New players will, by default, be ranked last.
 
 - The application will also need a facility to enter a match between two players and then update their ranks accordingly.
 
