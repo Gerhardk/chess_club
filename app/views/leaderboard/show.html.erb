@@ -1,28 +1,30 @@
-<div class="leaderboard">
-  <h1>
-    <svg class="ico-cup">
-      <use xlink:href="#cup"></use>
-    </svg>
-    Leaderboard
-  </h1>
-</div>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Surname</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @members.each do |member| %>
+<div class="container mx-auto">
+  <div class="leaderboard row">
+    <div class="col-12 text-center">
+      <h1>
+        Leaderboard
+      </h1>
+    </div>    
+  </div>
+  <div class="table-responsive row">
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
-          <th scope="row"><%= member.current_rank %></th>
-          <td><%= member.name %></td>
-          <td><%= member.surname %></td>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Surname</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+            <th scope="row"><%= member.current_rank %></th>
+            <td><%= member.name %></td>
+            <td><%= member.surname %></td>
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+  </div>
 </div>
