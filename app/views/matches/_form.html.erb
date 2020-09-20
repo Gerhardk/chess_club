@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'matches' %>
 <div class="container">
   <%= bootstrap_form_for(@match, layout: :horizontal, label_col: "col-sm-2", control_col: "col-sm-10") do |f| %>
     <% if @match.errors.any? %>
@@ -23,10 +24,7 @@
     </div>
     <div id="outcome-members" >
       <div class="hidden-fields">
-        <%= f.select :winner_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Winner" } %>
-      </div>
-      <div class="hidden-fields">
-        <%= f.select :loser_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Loser" } %>
+        <%= f.select :winner_id,  @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Winner" } %>
       </div>
     </div>
     <div class="actions">

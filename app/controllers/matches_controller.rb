@@ -11,7 +11,7 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(match_params)
+    @match = Match.new(full_match_params)
     if @match.save
       @match.calculate_rankings
       redirect_to matches_path, notice: 'Match was successfully created.'
@@ -21,6 +21,12 @@ class MatchesController < ApplicationController
   end
 
   private
+    def full_match_params
+      loser_id = [match_params[:player_one_id], match_params[:player_two_id]] - [match_params[:winner_id]]
+      
+      match_params.merge(loser_id: loser_id.last) 
+    end
+
     def match_params
       params.require(:match).permit(:player_one_id, :player_two_id, :date, :outcome, :winner_id, :loser_id)
     end

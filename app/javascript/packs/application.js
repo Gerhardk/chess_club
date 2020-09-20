@@ -9,30 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("jquery")
 require("bootstrap")
+require("packs/matches")
 
 $(document).on('turbolinks:load', function() {
-  var reloadSelectedOutcome = $("#match_outcome").children("option:selected").val()
-  if (reloadSelectedOutcome == "win") {
-    showWinnerAndLoserFields();
-  }
-
-  $("#outcome").on("change", "select", function() {
-    var selectedOutcome = $(this).children("option:selected").val()
-    if (selectedOutcome == "win") {
-      showWinnerAndLoserFields();
-    } else {
-      hideWinnerAndLoserFields();
-    }
-  })
-})
-
-function showWinnerAndLoserFields() {
-  var elements = $(".hidden-fields" );
-  elements.removeClass("hidden-fields");
-}; 
-
-function hideWinnerAndLoserFields() {
-  var elements = $("#outcome-members").children();
-  elements.addClass("hidden-fields");
-}
-
+})  
