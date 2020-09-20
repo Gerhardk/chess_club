@@ -7,7 +7,7 @@ class Member < ApplicationRecord
   before_create :calculate_starting_rank
 
   def calculate_starting_rank
-    self.current_rank = Member.count + 1
+    self.current_rank = Member.maximum("current_rank").nil? ? Member.count + 1 : Member.maximum("current_rank") + 1
   end
 
   def to_s

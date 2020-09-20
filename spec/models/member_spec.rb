@@ -29,5 +29,17 @@ RSpec.describe Member, type: :model do
       member = create(:member, name: 'Member', surname: '2', email: 'example2@example.com', birthday: Date.today)
       expect(member.current_rank).to eq(2)
     end
+
+
+    it 'sets the current ranking to last place when there is other members' do
+      create(:member, name: 'Member', surname: '1', email: 'example@example.com', birthday: Date.today, current_rank: 1)
+      create(:member, name: 'Member', surname: '2', email: 'example@example.com', birthday: Date.today, current_rank: 2)
+      member_updated_rank = create(:member, name: 'Member', surname: '3', email: 'example@example.com', birthday: Date.today)
+      member_updated_rank.current_rank = 2
+      member_updated_rank.save
+      
+      member = create(:member, name: 'Member', surname: '2', email: 'example2@example.com', birthday: Date.today)
+      expect(member.current_rank).to eq(3)
+    end
   end
 end
