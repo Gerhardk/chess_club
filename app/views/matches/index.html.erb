@@ -18,6 +18,9 @@
           <th scope="col">#</th>
           <th scope="col">Player One</th>
           <th scope="col">Player Two</th>
+          <th scope="col">Outcome</th>
+          <th scope="col">Winner</th>
+          <th scope="col">Loser</th>
         </tr>
       </thead>
       <tbody>
@@ -26,6 +29,9 @@
             <th scope="row"><%= match.id %></th>
             <td><%= match.player_one %></td>
             <td><%= match.player_two %></td>
+            <td><%= match.outcome.capitalize %></td>
+            <td><%= match.winner %></td>
+            <td><%= match.loser %></td>
           </tr>
         <% end %>
       </tbody>

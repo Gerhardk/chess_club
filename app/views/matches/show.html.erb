@@ -17,6 +17,11 @@
           <th scope="col">#</th>
           <th scope="col">Player One</th>
           <th scope="col">Player Two</th>
+          <th scope="col">Outcome</th>
+          <% if @match.outcome == "win" %>
+            <th scope="col">Winner</th>
+            <th scope="col">Loser</th>
+          <% end %>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +29,11 @@
           <th scope="row"><%= @match.id %></th>
           <td><%= @match.player_one %></td>
           <td><%= @match.player_two %></td>
+          <td><%= @match.outcome.capitalize %></td>
+          <% if @match.outcome == "win" %>
+            <td><%= match.winner %></td>
+            <td><%= match.loser %></td>
+          <% end %>
         </tr>
       </tbody>
     </table>

@@ -37,4 +37,12 @@ class Match < ApplicationRecord
   def adjacent?(a, b) # Move this to helper or util class
     (a - b).abs == 1
   end
+
+  def winner
+    return Member.find(winner_id) if winner_id
+  end
+
+  def loser
+    return Member.find(loser_id) if loser_id
+  end
 end

@@ -18,7 +18,7 @@ RSpec.describe Match, type: :model do
       expect(match.valid?).to eq(false)
       expect(match.errors.full_messages).to include('Player one and Player two can not be the same member')
     end
-  end 
+  end
 
   context 'calculate player rankings' do
     context 'outcome is a win' do

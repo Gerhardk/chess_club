@@ -9,4 +9,8 @@ class Member < ApplicationRecord
   def calculate_starting_rank
     self.current_rank = Member.count + 1
   end
+
+  def to_s
+    return "#{name} #{surname}"
+  end
 end
