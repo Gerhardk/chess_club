@@ -14,13 +14,16 @@ class MatchesController < ApplicationController
   end
 
   def create
-    if @match = Match.create(match_params)
+    @match = Match.new(match_params)
+    if @match.save
       redirect_to @match, notice: 'Match was successfully created.'
+    else
+      render :new
     end
   end
 
   private
-  def member_params
-    params.require(:match).permit(:player_one, :player_two, :date, :outcome)
+  def match_params
+    params.require(:match).permit(:player_one_id, :player_two_id, :date, :outcome, :winner_id, :loser_id)
   end
 end

@@ -36,12 +36,12 @@
   <p class="field invisible">
     <%= f.label :winner %>
     <br />    
-    <%= f.collection_select(:player_one_id, Member.all, :id, :name, prompt: "Select a Member") %>
+    <%= f.collection_select(:winner_id, Member.all, :id, :name, prompt: "Select a Member") %>
   </p>
   <p class="field invisible">
     <%= f.label :loser %>
     <br />    
-    <%= f.collection_select(:player_two_id, Member.all, :id, :name, prompt: "Select a Member") %>
+    <%= f.collection_select(:loser_id, Member.all, :id, :name, prompt: "Select a Member") %>
   </p>
   <div class="actions">
     <%= f.submit %>
