@@ -14,37 +14,19 @@
         </ol>
       </div>
     <% end %>
+    <%= f.select :player_one_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Player One" } %>
+    <%= f.select :player_two_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Player Two" } %>
+    <%= f.date_field :date %>
 
-    <div class="form-group row">
-      <div class="col">
-        <%= f.collection_select :player_one_id, Member.all, :id, :fullname, { prompt: "Select a Member" } %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col">
-        <%= f.collection_select :player_two_id, Member.all, :id, :fullname, { prompt: "Select a Member" } %>
-      </div>
-    </div>
-    <div class="form-group row">
-      <div class="col">
-        <%= f.date_field :date %>
-      </div>
-    </div>
-    <div class="form-group row" id="outcome">
-      <div class="col">
-        <%= f.select :outcome, Match.outcomes.keys.to_a, { prompt: "Select a Outcome" } %>
-      </div>
+    <div id="outcome">
+      <%= f.select :outcome, Match.outcomes.keys.to_a, { prompt: "Select a Outcome" } %>
     </div>
     <div id="outcome-members" >
-      <div class="form-group row hidden-fields">
-        <div class="col">
-          <%= f.collection_select :winner_id, Member.all, :id, :fullname, { prompt: "Select a Member" } %>
-        </div>
+      <div class="hidden-fields">
+        <%= f.select :winner_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Winner" } %>
       </div>
-      <div class="form-group row hidden-fields">
-        <div class="col">
-          <%= f.collection_select :loser_id, Member.all, :id, :fullname, { prompt: "Select a Member" } %>
-        </div>
+      <div class="hidden-fields">
+        <%= f.select :loser_id, @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Loser" } %>
       </div>
     </div>
     <div class="actions">

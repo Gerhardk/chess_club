@@ -3,6 +3,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :members
-  resources :matches, only: [:index, :show, :new, :create]
+  resources :matches, only: [:index, :new, :create]
   root to: 'leaderboard#show', as: "leaderboard"
 end

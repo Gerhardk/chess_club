@@ -3,6 +3,8 @@ class Match < ApplicationRecord
   belongs_to :player_two, class_name: 'Member', foreign_key: 'player_two_id'
 
   validates_with MemberValidator
+  validates :date,
+            :outcome, presence: true
   enum outcome: [ :win, :draw ]
 
   def calculate_rankings

@@ -10,7 +10,12 @@ require("channels")
 require("jquery")
 require("bootstrap")
 
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function() {
+  var reloadSelectedOutcome = $("#match_outcome").children("option:selected").val()
+  if (reloadSelectedOutcome == "win") {
+    showWinnerAndLoserFields();
+  }
+
   $("#outcome").on("change", "select", function() {
     var selectedOutcome = $(this).children("option:selected").val()
     if (selectedOutcome == "win") {
