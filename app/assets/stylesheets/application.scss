@@ -1,0 +1,13 @@
+@import 'bootstrap/scss/bootstrap';
+@import "rails_bootstrap_forms";
+@import 'leaderboard';
+@import 'matches';
+@import 'members';
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
