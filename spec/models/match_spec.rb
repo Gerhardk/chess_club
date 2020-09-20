@@ -2,11 +2,23 @@ require 'rails_helper'
 
 RSpec.describe Match, type: :model do
   context 'validation test' do
-    it 'checks that match is valid if all required attributes are filled in' do 
+    it 'checks that match is not valid if not all required attributes are filled in' do 
       match = build(:match)
+      expect(match.valid?).to eq(false)
+    end
+
+    it 'checks that match is valid if all required attributes are filled in' do 
+      match = build(:match, player_one: create(:valid_member), player_two: create(:valid_member))
       expect(match.valid?).to eq(true)
     end
-  end
+
+    it 'checks that the same player can not be selected for both player one and player two' do
+      member = create(:valid_member)
+      match = build(:match, player_one: member, player_two: member)
+      expect(match.valid?).to eq(false)
+      expect(match.errors.full_messages).to include('Player one and Player two can not be the same member')
+    end
+  end 
 
   context 'calculate player rankings' do
     context 'outcome is a win' do
