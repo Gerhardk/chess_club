@@ -1,0 +1,49 @@
+<%= form_for @match do |f| %>
+  <% if @match.errors.any? %>
+    <div id="error_explanation">
+      <strong>
+        <%= "#{pluralize(@match.errors.count, "error")} prohibited this block from being saved:" %>
+      </strong>
+      <ol>
+        <% @match.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  <% end %>
+  <p class="field">
+    <%= f.label :player_one %>
+    <br />    
+    <%= f.collection_select(:player_one_id, Member.all, :id, :name, prompt: "Select a Member") %>
+  </p>
+  <p class="field">
+    <%= f.label :player_two %>
+    <br />    
+    <%= f.collection_select(:player_two_id, Member.all, :id, :name, prompt: "Select a Member") %>
+  </p>
+  <p class="field">
+    <%= f.label :date %>
+    <br />    
+    <%= f.date_field :date %>
+  </p>
+  <p class="field">
+    <%= f.label :outcome %>
+    <br />    
+    <%= f.select :outcome, Match.outcomes.keys.to_a, prompt: "Select a Outcome" %>
+  </p>
+  <p class="field invisible">
+    <%= f.label :winner %>
+    <br />    
+    <%= f.collection_select(:player_one_id, Member.all, :id, :name, prompt: "Select a Member") %>
+  </p>
+  <p class="field invisible">
+    <%= f.label :loser %>
+    <br />    
+    <%= f.collection_select(:player_two_id, Member.all, :id, :name, prompt: "Select a Member") %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
