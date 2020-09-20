@@ -16,33 +16,35 @@
   <p class="field">
     <%= f.label :player_one %>
     <br />    
-    <%= f.collection_select(:player_one_id, Member.all, :id, :name, prompt: "Select a Member") %>
+    <%= f.collection_select(:player_one_id, Member.all, :id, :fullname, prompt: "Select a Member") %>
   </p>
   <p class="field">
     <%= f.label :player_two %>
     <br />    
-    <%= f.collection_select(:player_two_id, Member.all, :id, :name, prompt: "Select a Member") %>
+    <%= f.collection_select(:player_two_id, Member.all, :id, :fullname, prompt: "Select a Member") %>
   </p>
   <p class="field">
     <%= f.label :date %>
     <br />    
     <%= f.date_field :date %>
   </p>
-  <p class="field">
+  <p class="field" id="outcome">
     <%= f.label :outcome %>
     <br />    
     <%= f.select :outcome, Match.outcomes.keys.to_a, prompt: "Select a Outcome" %>
   </p>
-  <p class="field invisible">
-    <%= f.label :winner %>
-    <br />    
-    <%= f.collection_select(:winner_id, Member.all, :id, :name, prompt: "Select a Member") %>
-  </p>
-  <p class="field invisible">
-    <%= f.label :loser %>
-    <br />    
-    <%= f.collection_select(:loser_id, Member.all, :id, :name, prompt: "Select a Member") %>
-  </p>
+  <div id="outcome-members" >
+    <p class="field hidden-fields">
+      <%= f.label :winner %>
+      <br />    
+      <%= f.collection_select(:winner_id, Member.all, :id, :fullname, prompt: "Select a Member") %>
+    </p>
+    <p class="field hidden-fields">
+      <%= f.label :loser %>
+      <br />    
+      <%= f.collection_select(:loser_id, Member.all, :id, :fullname, prompt: "Select a Member") %>
+    </p>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

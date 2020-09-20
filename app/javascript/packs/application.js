@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -15,3 +16,24 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+$(document).on('turbolinks:load', function(){
+  $("#outcome").on("change", "select", function() {
+    var selectedOutcome = $(this).children("option:selected").val()
+    if (selectedOutcome == "win") {
+      showWinnerAndLoserFields();
+    } else {
+      hideWinnerAndLoserFields();
+    }
+  })
+})
+
+function showWinnerAndLoserFields() {
+  var elements = $(".hidden-fields" );
+  elements.removeClass("hidden-fields");
+}; 
+
+function hideWinnerAndLoserFields() {
+  var elements = $("#outcome-members").children();
+  elements.addClass("hidden-fields");
+}
+

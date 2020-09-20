@@ -16,6 +16,7 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     if @match.save
+      @match.calculate_rankings
       redirect_to @match, notice: 'Match was successfully created.'
     else
       render :new

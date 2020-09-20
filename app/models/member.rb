@@ -13,4 +13,8 @@ class Member < ApplicationRecord
   def to_s
     return "#{name} #{surname}"
   end
+
+  def fullname
+    return "#{name} #{surname}"
+  end
 end

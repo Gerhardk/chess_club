@@ -31,8 +31,8 @@
           <td><%= @match.player_two %></td>
           <td><%= @match.outcome.capitalize %></td>
           <% if @match.outcome == "win" %>
-            <td><%= match.winner %></td>
-            <td><%= match.loser %></td>
+            <td><%= @match.winner %></td>
+            <td><%= @match.loser %></td>
           <% end %>
         </tr>
       </tbody>
