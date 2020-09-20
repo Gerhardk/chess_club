@@ -8,10 +8,6 @@
     end %>
 </section>
 
-<section class="text-center m-3">
-  <%= link_to('Members', members_path, class: 'm-3') %>
-<section>
-
 <div class="container mx-auto">
   <div class="leaderboard row">
     <div class="col-12 text-center">
@@ -41,3 +37,9 @@
     </table>
   </div>
 </div>
+
+<section class="text-center m-3">
+  <% if current_user %>
+    <%= link_to('Members', members_path, class: 'm-3') %>
+  <% end %>
+<section>
