@@ -20,6 +20,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem "bootstrap_form", "~> 4.0"
 gem 'devise'
+gem 'sprockets', '~> 3.7'
 
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.1'
