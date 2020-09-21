@@ -9,7 +9,7 @@ function showWinnerAndLoserFields() {
 function hideWinnerAndLoserFields() {
   var elements = $("#outcome-members").children()
   elements.addClass("hidden-fields")
-  $("#match_winner_id").prop('disabled', false)
+  $("#match_winner_id").prop('disabled', true)
 }
 
 function updateWinnerSelectOption() {

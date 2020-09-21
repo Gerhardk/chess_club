@@ -24,7 +24,7 @@
     </div>
     <div id="outcome-members" >
       <div class="hidden-fields">
-        <%= f.select :winner_id,  @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Winner" } %>
+        <%= f.select :winner_id,  @all_members, { wrapper: { class: 'has-warning' }, prompt: "Select a Winner" }, disabled: true %>
       </div>
     </div>
     <div class="actions">

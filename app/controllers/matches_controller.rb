@@ -22,9 +22,13 @@ class MatchesController < ApplicationController
 
   private
     def full_match_params
-      loser_id = [match_params[:player_one_id], match_params[:player_two_id]] - [match_params[:winner_id]]
-      
-      match_params.merge(loser_id: loser_id.last) 
+      if match_params[:outcome] == "win"
+        loser_id = [match_params[:player_one_id], match_params[:player_two_id]] - [match_params[:winner_id]]
+        
+        match_params.merge(loser_id: loser_id.last)
+      else
+        match_params
+      end 
     end
 
     def match_params
