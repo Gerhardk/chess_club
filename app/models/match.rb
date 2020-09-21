@@ -8,7 +8,7 @@ class Match < ApplicationRecord
   enum outcome: [ :win, :draw ]
 
   def calculate_rankings
-    if outcome == "win"
+    if win?
       winner = Member.find(self.winner_id)
       loser = Member.find(self.loser_id)
       if winner.current_rank > loser.current_rank
